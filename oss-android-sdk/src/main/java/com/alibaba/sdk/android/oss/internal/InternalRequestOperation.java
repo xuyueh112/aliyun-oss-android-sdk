@@ -174,6 +174,11 @@ public class InternalRequestOperation {
         if (request.getCallbackVars() != null) {
             requestMessage.getHeaders().put("x-oss-callback-var", OSSUtils.populateMapToBase64JsonString(request.getCallbackVars()));
         }
+
+        if (request.getAcl() != null) {
+            requestMessage.getHeaders().put("x-oss-object-acl", request.getAcl());
+        }
+
         OSSLog.logDebug(" populateRequestMetadata ");
         OSSUtils.populateRequestMetadata(requestMessage.getHeaders(), request.getMetadata());
         OSSLog.logDebug(" canonicalizeRequestMessage ");

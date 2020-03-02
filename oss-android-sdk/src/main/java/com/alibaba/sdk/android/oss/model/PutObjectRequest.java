@@ -33,6 +33,8 @@ public class PutObjectRequest extends OSSRequest {
     //run with not ui thread
     private OSSRetryCallback retryCallback;
 
+    private String acl;
+
     /**
      * Constructor
      *
@@ -202,5 +204,13 @@ public class PutObjectRequest extends OSSRequest {
      */
     public void setCallbackVars(Map<String, String> callbackVars) {
         this.callbackVars = callbackVars;
+    }
+
+    public String getAcl() {
+        return acl;
+    }
+
+    public void setAcl(String acl) {
+        this.acl = acl;
     }
 }
